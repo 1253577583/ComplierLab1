@@ -28,8 +28,6 @@ pNode syntaxNode(int lineNo, NodeType type, char* syntaxName, int argc,
 pNode tokenNode(int lineNo, NodeType type, char* tokenName,
                                  char* tokenText);
 
-void delNode(pNode node) ;
-
-void printTreeInfo(pNode curNode, int height) ;
+void printSyntaxTree(pNode curNode, int height) ;
 
 #endif

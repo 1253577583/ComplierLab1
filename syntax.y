@@ -6,9 +6,6 @@
     void yyerror(const char* s);
     extern unsigned synError;
     pNode root;
-    //#define YYERROR_VERBOSE 1
-    
-
 %}
 %define parse.error detailed
 

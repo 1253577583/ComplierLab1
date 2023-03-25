@@ -24,8 +24,7 @@ int main(int argc, char** argv) {
     yyrestart(f);
     yyparse();
     if (!lexError && !synError) {
-        printTreeInfo(root, 0);
+        printSyntaxTree(root, 0);
     }
-    delNode(root);
     return 0;
 }

@@ -38,26 +38,10 @@ pNode syntaxNode(int lineNo, NodeType type, char* syntaxName, int argc,
         }
     }
     va_end(vaList);
-
     return fatherNode;
 }
 
-void delNode(pNode node) {
-    if (node == NULL) return;
-    while (node->child != NULL) {
-        pNode temp = node->child;
-        node->child = node->child->next;
-        delNode(temp);
-    }
-    free(node->name);
-    free(node->val);
-    free(node);
-    node->name = NULL;
-    node->val = NULL;
-    node = NULL;
-}
-
-void printTreeInfo(pNode curNode, int height) {
+void printSyntaxTree(pNode curNode, int height) {
     if (curNode == NULL) {return;}
 
     for (int i = 0; i < height; i++) {
@@ -70,6 +54,7 @@ void printTreeInfo(pNode curNode, int height) {
         printf(": %s", curNode->val);
     } 
     printf("\n");
-    printTreeInfo(curNode->child, height + 1);
-    printTreeInfo(curNode->next, height);
+    printSyntaxTree(curNode->child, height + 1);
+    printSyntaxTree(curNode->next, height);
+    free(curNode);
 }

@@ -14,7 +14,6 @@ int yycolumn = 1;
 
 /* Use yylineon */
 %option yylineno
-
 /* Identifier */
 ID [_a-zA-Z][_a-zA-Z0-9]*
 /* Integer */
@@ -64,8 +63,6 @@ whitespace [ \t]
 enter [\n\r]
 /* Comment */
 line_comment \/\/.*
-comment_prefix \/\*
-comment_suffix \*\/
 %x C_COMMENT
 
 %%
