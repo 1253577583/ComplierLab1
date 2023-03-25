@@ -2,10 +2,10 @@
 #define ENUM_H
 // define
 typedef enum nodeType {
-    ID,
-    TYPE,
-    INT,
-    FLOAT,
+    TOKEN_ID,
+    TOKEN_TYPE,
+    TOKEN_INT,
+    TOKEN_FLOAT,
     OTHER,
     SYNTAX
 } NodeType;
