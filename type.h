@@ -1,5 +1,5 @@
-#ifndef ENUM_H
-#define ENUM_H
+#ifndef TYPE_H
+#define TYPE_H
 // define
 typedef enum nodeType {
     TOKEN_ID,

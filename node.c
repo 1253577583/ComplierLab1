@@ -66,12 +66,9 @@ void printTreeInfo(pNode curNode, int height) {
     printf("%s", curNode->name);
     if (curNode->type == SYNTAX) {
         printf(" (%d)", curNode->lineNo);
-    } else if (curNode->type == TOKEN_TYPE || curNode->type == TOKEN_ID ||
-               curNode->type == TOKEN_INT) {
+    } else if (curNode->type != OTHER) {
         printf(": %s", curNode->val);
-    } else if (curNode->type == TOKEN_FLOAT) {
-        printf(": %lf", atof(curNode->val));
-    }
+    } 
     printf("\n");
     printTreeInfo(curNode->child, height + 1);
     printTreeInfo(curNode->next, height);

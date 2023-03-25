@@ -6,8 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "enum.h"
+#include "type.h"
 
 #define TRUE 1
 #define FALSE 0

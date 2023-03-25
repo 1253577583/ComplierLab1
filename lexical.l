@@ -62,10 +62,20 @@ DIV "/"
 /* Misc */
 whitespace [ \t]
 enter [\n\r]
+/* Comment */
+line_comment \/\/.*
+comment_prefix \/\*
+comment_suffix \*\/
+%x C_COMMENT
 
 %%
-{whitespace}+ {;}
+{whitespace}+ {}
 {enter} { yycolumn = 1; }
+{line_comment} {;}
+"/*" {BEGIN(C_COMMENT);}
+<C_COMMENT>"*/" {BEGIN(INITIAL);}
+<C_COMMENT>\n {}
+<C_COMMENT>. {}
 
 {TYPE} { yylval = tokenNode(yylineno, TOKEN_TYPE, "TYPE", yytext); return TYPE; }
 {STRUCT} { yylval = tokenNode(yylineno, OTHER, "STRUCT", yytext); return STRUCT; }
@@ -99,5 +109,6 @@ enter [\n\r]
 {RELOP} { yylval = tokenNode(yylineno, OTHER, "RELOP", yytext); return RELOP; }
 
 
+. { lexError = TRUE; printf("Error type A at Line %d: Mysterious character \'%s\'.\n", yylineno, yytext); }
 
 %%
