@@ -2,8 +2,6 @@
 #include "syntax.tab.h"
 
 extern pNode root;
-extern int yylineno;
-extern int yyparse();
 extern void yyrestart(FILE*);
 
 unsigned lexError = FALSE;

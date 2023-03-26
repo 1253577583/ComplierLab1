@@ -76,11 +76,8 @@
     void yyerror(const char* s);
     extern unsigned synError;
     pNode root;
-    //#define YYERROR_VERBOSE 1
-    
 
-
-#line 84 "syntax.tab.c"
+#line 81 "syntax.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -552,13 +549,13 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    48,    48,    50,    51,    53,    54,    55,    56,    58,
-      59,    62,    63,    65,    66,    68,    69,    71,    74,    75,
-      76,    78,    79,    80,    82,    83,    85,    88,    89,    91,
-      92,    94,    95,    96,    97,    98,    99,   100,   103,   104,
-     106,   108,   109,   111,   112,   115,   116,   117,   118,   119,
-     120,   121,   122,   123,   124,   125,   126,   127,   128,   129,
-     130,   131,   132,   134,   135
+       0,    45,    45,    47,    48,    50,    51,    52,    53,    55,
+      56,    59,    60,    62,    63,    65,    66,    68,    71,    72,
+      73,    75,    76,    77,    79,    80,    82,    85,    86,    88,
+      89,    91,    92,    93,    94,    95,    96,    97,   100,   101,
+     103,   105,   106,   108,   109,   112,   113,   114,   115,   116,
+     117,   118,   119,   120,   121,   122,   123,   124,   125,   126,
+     127,   128,   129,   131,   132
 };
 #endif
 
@@ -1555,385 +1552,385 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* Program: ExtDefList  */
-#line 48 "syntax.y"
+#line 45 "syntax.y"
                     { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Program", 1, yyvsp[0]); root = yyval; }
-#line 1561 "syntax.tab.c"
+#line 1558 "syntax.tab.c"
     break;
 
   case 3: /* ExtDefList: ExtDef ExtDefList  */
-#line 50 "syntax.y"
+#line 47 "syntax.y"
                               { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDefList", 2, yyvsp[-1], yyvsp[0]); }
-#line 1567 "syntax.tab.c"
+#line 1564 "syntax.tab.c"
     break;
 
   case 4: /* ExtDefList: %empty  */
-#line 51 "syntax.y"
+#line 48 "syntax.y"
       { yyval = NULL; }
-#line 1573 "syntax.tab.c"
+#line 1570 "syntax.tab.c"
     break;
 
   case 5: /* ExtDef: Specifier ExtDecList SEMI  */
-#line 53 "syntax.y"
+#line 50 "syntax.y"
                                   { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDef", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1579 "syntax.tab.c"
+#line 1576 "syntax.tab.c"
     break;
 
   case 6: /* ExtDef: Specifier SEMI  */
-#line 54 "syntax.y"
+#line 51 "syntax.y"
                      { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDef", 2, yyvsp[-1], yyvsp[0]); }
-#line 1585 "syntax.tab.c"
+#line 1582 "syntax.tab.c"
     break;
 
   case 7: /* ExtDef: Specifier FunDec CompSt  */
-#line 55 "syntax.y"
+#line 52 "syntax.y"
                               { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDef", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1591 "syntax.tab.c"
+#line 1588 "syntax.tab.c"
     break;
 
   case 8: /* ExtDef: error SEMI  */
-#line 56 "syntax.y"
+#line 53 "syntax.y"
                  { synError = TRUE; }
-#line 1597 "syntax.tab.c"
+#line 1594 "syntax.tab.c"
     break;
 
   case 9: /* ExtDecList: VarDec  */
-#line 58 "syntax.y"
+#line 55 "syntax.y"
                    { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDecList", 1, yyvsp[0]); }
-#line 1603 "syntax.tab.c"
+#line 1600 "syntax.tab.c"
     break;
 
   case 10: /* ExtDecList: VarDec COMMA ExtDecList  */
-#line 59 "syntax.y"
+#line 56 "syntax.y"
                               { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ExtDecList", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1609 "syntax.tab.c"
+#line 1606 "syntax.tab.c"
     break;
 
   case 11: /* Specifier: TYPE  */
-#line 62 "syntax.y"
+#line 59 "syntax.y"
                 { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Specifier", 1, yyvsp[0]); }
-#line 1615 "syntax.tab.c"
+#line 1612 "syntax.tab.c"
     break;
 
   case 12: /* Specifier: StructSpecifier  */
-#line 63 "syntax.y"
+#line 60 "syntax.y"
                       { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Specifier", 1, yyvsp[0]); }
-#line 1621 "syntax.tab.c"
+#line 1618 "syntax.tab.c"
     break;
 
   case 13: /* StructSpecifier: STRUCT OptTag LC DefList RC  */
-#line 65 "syntax.y"
+#line 62 "syntax.y"
                                              { yyval = syntaxNode((yyloc).first_line, SYNTAX, "StructSpecifier", 5, yyvsp[-4], yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1627 "syntax.tab.c"
+#line 1624 "syntax.tab.c"
     break;
 
   case 14: /* StructSpecifier: STRUCT Tag  */
-#line 66 "syntax.y"
+#line 63 "syntax.y"
                  { yyval = syntaxNode((yyloc).first_line, SYNTAX, "StructSpecifier", 2, yyvsp[-1], yyvsp[0]); }
-#line 1633 "syntax.tab.c"
+#line 1630 "syntax.tab.c"
     break;
 
   case 15: /* OptTag: ID  */
-#line 68 "syntax.y"
+#line 65 "syntax.y"
            { yyval = syntaxNode((yyloc).first_line, SYNTAX, "OptTag", 1, yyvsp[0]); }
-#line 1639 "syntax.tab.c"
+#line 1636 "syntax.tab.c"
     break;
 
   case 16: /* OptTag: %empty  */
-#line 69 "syntax.y"
+#line 66 "syntax.y"
       { yyval = NULL; }
-#line 1645 "syntax.tab.c"
+#line 1642 "syntax.tab.c"
     break;
 
   case 17: /* Tag: ID  */
-#line 71 "syntax.y"
+#line 68 "syntax.y"
         { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Tag", 1, yyvsp[0]); }
-#line 1651 "syntax.tab.c"
+#line 1648 "syntax.tab.c"
     break;
 
   case 18: /* VarDec: ID  */
-#line 74 "syntax.y"
+#line 71 "syntax.y"
            { yyval = syntaxNode((yyloc).first_line, SYNTAX, "VarDec", 1, yyvsp[0]); }
-#line 1657 "syntax.tab.c"
+#line 1654 "syntax.tab.c"
     break;
 
   case 19: /* VarDec: VarDec LB INT RB  */
-#line 75 "syntax.y"
+#line 72 "syntax.y"
                        { yyval = syntaxNode((yyloc).first_line, SYNTAX, "VarDec", 4, yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1663 "syntax.tab.c"
+#line 1660 "syntax.tab.c"
     break;
 
   case 20: /* VarDec: error RB  */
-#line 76 "syntax.y"
+#line 73 "syntax.y"
                { synError = TRUE; }
-#line 1669 "syntax.tab.c"
+#line 1666 "syntax.tab.c"
     break;
 
   case 21: /* FunDec: ID LP VarList RP  */
-#line 78 "syntax.y"
+#line 75 "syntax.y"
                          { yyval = syntaxNode((yyloc).first_line, SYNTAX, "FunDec", 4, yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1675 "syntax.tab.c"
+#line 1672 "syntax.tab.c"
     break;
 
   case 22: /* FunDec: ID LP RP  */
-#line 79 "syntax.y"
+#line 76 "syntax.y"
                { yyval = syntaxNode((yyloc).first_line, SYNTAX, "FunDec", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1681 "syntax.tab.c"
+#line 1678 "syntax.tab.c"
     break;
 
   case 23: /* FunDec: error RP  */
-#line 80 "syntax.y"
+#line 77 "syntax.y"
                { synError = TRUE; }
-#line 1687 "syntax.tab.c"
+#line 1684 "syntax.tab.c"
     break;
 
   case 24: /* VarList: ParamDec COMMA VarList  */
-#line 82 "syntax.y"
+#line 79 "syntax.y"
                                 { yyval = syntaxNode((yyloc).first_line, SYNTAX, "VarList", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1693 "syntax.tab.c"
+#line 1690 "syntax.tab.c"
     break;
 
   case 25: /* VarList: ParamDec  */
-#line 83 "syntax.y"
+#line 80 "syntax.y"
                { yyval = syntaxNode((yyloc).first_line, SYNTAX, "VarList", 1, yyvsp[0]); }
-#line 1699 "syntax.tab.c"
+#line 1696 "syntax.tab.c"
     break;
 
   case 26: /* ParamDec: Specifier VarDec  */
-#line 85 "syntax.y"
+#line 82 "syntax.y"
                            { yyval = syntaxNode((yyloc).first_line, SYNTAX, "ParamDec", 2, yyvsp[-1], yyvsp[0]); }
-#line 1705 "syntax.tab.c"
+#line 1702 "syntax.tab.c"
     break;
 
   case 27: /* CompSt: LC DefList StmtList RC  */
-#line 88 "syntax.y"
+#line 85 "syntax.y"
                                { yyval = syntaxNode((yyloc).first_line, SYNTAX, "CompSt", 4, yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1711 "syntax.tab.c"
+#line 1708 "syntax.tab.c"
     break;
 
   case 28: /* CompSt: error RC  */
-#line 89 "syntax.y"
+#line 86 "syntax.y"
                { synError = TRUE; }
-#line 1717 "syntax.tab.c"
+#line 1714 "syntax.tab.c"
     break;
 
   case 29: /* StmtList: Stmt StmtList  */
-#line 91 "syntax.y"
+#line 88 "syntax.y"
                         { yyval = syntaxNode((yyloc).first_line, SYNTAX, "StmtList", 2, yyvsp[-1], yyvsp[0]); }
-#line 1723 "syntax.tab.c"
+#line 1720 "syntax.tab.c"
     break;
 
   case 30: /* StmtList: %empty  */
-#line 92 "syntax.y"
+#line 89 "syntax.y"
       { yyval = NULL; }
-#line 1729 "syntax.tab.c"
+#line 1726 "syntax.tab.c"
     break;
 
   case 31: /* Stmt: Exp SEMI  */
-#line 94 "syntax.y"
+#line 91 "syntax.y"
                { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 2, yyvsp[-1], yyvsp[0]); }
-#line 1735 "syntax.tab.c"
+#line 1732 "syntax.tab.c"
     break;
 
   case 32: /* Stmt: CompSt  */
-#line 95 "syntax.y"
+#line 92 "syntax.y"
              { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 1, yyvsp[0]); }
-#line 1741 "syntax.tab.c"
+#line 1738 "syntax.tab.c"
     break;
 
   case 33: /* Stmt: RETURN Exp SEMI  */
-#line 96 "syntax.y"
+#line 93 "syntax.y"
                       { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1747 "syntax.tab.c"
+#line 1744 "syntax.tab.c"
     break;
 
   case 34: /* Stmt: IF LP Exp RP Stmt  */
-#line 97 "syntax.y"
+#line 94 "syntax.y"
                                               { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 5, yyvsp[-4], yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1753 "syntax.tab.c"
+#line 1750 "syntax.tab.c"
     break;
 
   case 35: /* Stmt: IF LP Exp RP Stmt ELSE Stmt  */
-#line 98 "syntax.y"
+#line 95 "syntax.y"
                                   { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 7, yyvsp[-6], yyvsp[-5], yyvsp[-4], yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1759 "syntax.tab.c"
+#line 1756 "syntax.tab.c"
     break;
 
   case 36: /* Stmt: WHILE LP Exp RP Stmt  */
-#line 99 "syntax.y"
+#line 96 "syntax.y"
                            { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Stmt", 5, yyvsp[-4], yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1765 "syntax.tab.c"
+#line 1762 "syntax.tab.c"
     break;
 
   case 37: /* Stmt: error SEMI  */
-#line 100 "syntax.y"
+#line 97 "syntax.y"
                  { synError = TRUE; }
-#line 1771 "syntax.tab.c"
+#line 1768 "syntax.tab.c"
     break;
 
   case 38: /* DefList: Def DefList  */
-#line 103 "syntax.y"
+#line 100 "syntax.y"
                      { yyval = syntaxNode((yyloc).first_line, SYNTAX, "DefList", 2, yyvsp[-1], yyvsp[0]); }
-#line 1777 "syntax.tab.c"
+#line 1774 "syntax.tab.c"
     break;
 
   case 39: /* DefList: %empty  */
-#line 104 "syntax.y"
+#line 101 "syntax.y"
       { yyval = NULL; }
-#line 1783 "syntax.tab.c"
+#line 1780 "syntax.tab.c"
     break;
 
   case 40: /* Def: Specifier DecList SEMI  */
-#line 106 "syntax.y"
+#line 103 "syntax.y"
                             { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Def", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1789 "syntax.tab.c"
+#line 1786 "syntax.tab.c"
     break;
 
   case 41: /* DecList: Dec  */
-#line 108 "syntax.y"
+#line 105 "syntax.y"
              { yyval = syntaxNode((yyloc).first_line, SYNTAX, "DecList", 1, yyvsp[0]); }
-#line 1795 "syntax.tab.c"
+#line 1792 "syntax.tab.c"
     break;
 
   case 42: /* DecList: Dec COMMA DecList  */
-#line 109 "syntax.y"
+#line 106 "syntax.y"
                         { yyval = syntaxNode((yyloc).first_line, SYNTAX, "DecList", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1801 "syntax.tab.c"
+#line 1798 "syntax.tab.c"
     break;
 
   case 43: /* Dec: VarDec  */
-#line 111 "syntax.y"
+#line 108 "syntax.y"
             { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Dec", 1, yyvsp[0]); }
-#line 1807 "syntax.tab.c"
+#line 1804 "syntax.tab.c"
     break;
 
   case 44: /* Dec: VarDec ASSIGNOP Exp  */
-#line 112 "syntax.y"
+#line 109 "syntax.y"
                           { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Dec", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1813 "syntax.tab.c"
+#line 1810 "syntax.tab.c"
     break;
 
   case 45: /* Exp: Exp ASSIGNOP Exp  */
-#line 115 "syntax.y"
+#line 112 "syntax.y"
                       { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1819 "syntax.tab.c"
+#line 1816 "syntax.tab.c"
     break;
 
   case 46: /* Exp: Exp AND Exp  */
-#line 116 "syntax.y"
+#line 113 "syntax.y"
                   { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1825 "syntax.tab.c"
+#line 1822 "syntax.tab.c"
     break;
 
   case 47: /* Exp: Exp OR Exp  */
-#line 117 "syntax.y"
+#line 114 "syntax.y"
                  { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1831 "syntax.tab.c"
+#line 1828 "syntax.tab.c"
     break;
 
   case 48: /* Exp: Exp RELOP Exp  */
-#line 118 "syntax.y"
+#line 115 "syntax.y"
                     { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1837 "syntax.tab.c"
+#line 1834 "syntax.tab.c"
     break;
 
   case 49: /* Exp: Exp PLUS Exp  */
-#line 119 "syntax.y"
+#line 116 "syntax.y"
                    { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1843 "syntax.tab.c"
+#line 1840 "syntax.tab.c"
     break;
 
   case 50: /* Exp: Exp MINUS Exp  */
-#line 120 "syntax.y"
+#line 117 "syntax.y"
                     { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1849 "syntax.tab.c"
+#line 1846 "syntax.tab.c"
     break;
 
   case 51: /* Exp: Exp STAR Exp  */
-#line 121 "syntax.y"
+#line 118 "syntax.y"
                    { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1855 "syntax.tab.c"
+#line 1852 "syntax.tab.c"
     break;
 
   case 52: /* Exp: Exp DIV Exp  */
-#line 122 "syntax.y"
+#line 119 "syntax.y"
                   { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1861 "syntax.tab.c"
+#line 1858 "syntax.tab.c"
     break;
 
   case 53: /* Exp: LP Exp RP  */
-#line 123 "syntax.y"
+#line 120 "syntax.y"
                 { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1867 "syntax.tab.c"
+#line 1864 "syntax.tab.c"
     break;
 
   case 54: /* Exp: MINUS Exp  */
-#line 124 "syntax.y"
+#line 121 "syntax.y"
                 { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 2, yyvsp[-1], yyvsp[0]); }
-#line 1873 "syntax.tab.c"
+#line 1870 "syntax.tab.c"
     break;
 
   case 55: /* Exp: NOT Exp  */
-#line 125 "syntax.y"
+#line 122 "syntax.y"
               { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 2, yyvsp[-1], yyvsp[0]); }
-#line 1879 "syntax.tab.c"
+#line 1876 "syntax.tab.c"
     break;
 
   case 56: /* Exp: ID LP Args RP  */
-#line 126 "syntax.y"
+#line 123 "syntax.y"
                     { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 4, yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1885 "syntax.tab.c"
+#line 1882 "syntax.tab.c"
     break;
 
   case 57: /* Exp: ID LP RP  */
-#line 127 "syntax.y"
+#line 124 "syntax.y"
                { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1891 "syntax.tab.c"
+#line 1888 "syntax.tab.c"
     break;
 
   case 58: /* Exp: Exp LB Exp RB  */
-#line 128 "syntax.y"
+#line 125 "syntax.y"
                     { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 4, yyvsp[-3], yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1897 "syntax.tab.c"
+#line 1894 "syntax.tab.c"
     break;
 
   case 59: /* Exp: Exp DOT ID  */
-#line 129 "syntax.y"
+#line 126 "syntax.y"
                  { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1903 "syntax.tab.c"
+#line 1900 "syntax.tab.c"
     break;
 
   case 60: /* Exp: ID  */
-#line 130 "syntax.y"
+#line 127 "syntax.y"
          { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 1, yyvsp[0]); }
-#line 1909 "syntax.tab.c"
+#line 1906 "syntax.tab.c"
     break;
 
   case 61: /* Exp: INT  */
-#line 131 "syntax.y"
+#line 128 "syntax.y"
           { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 1, yyvsp[0]); }
-#line 1915 "syntax.tab.c"
+#line 1912 "syntax.tab.c"
     break;
 
   case 62: /* Exp: FLOAT  */
-#line 132 "syntax.y"
+#line 129 "syntax.y"
             { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Exp", 1, yyvsp[0]); }
-#line 1921 "syntax.tab.c"
+#line 1918 "syntax.tab.c"
     break;
 
   case 63: /* Args: Exp COMMA Args  */
-#line 134 "syntax.y"
+#line 131 "syntax.y"
                      { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Args", 3, yyvsp[-2], yyvsp[-1], yyvsp[0]); }
-#line 1927 "syntax.tab.c"
+#line 1924 "syntax.tab.c"
     break;
 
   case 64: /* Args: Exp  */
-#line 135 "syntax.y"
+#line 132 "syntax.y"
           { yyval = syntaxNode((yyloc).first_line, SYNTAX, "Args", 1, yyvsp[0]); }
-#line 1933 "syntax.tab.c"
+#line 1930 "syntax.tab.c"
     break;
 
 
-#line 1937 "syntax.tab.c"
+#line 1934 "syntax.tab.c"
 
       default: break;
     }
@@ -2162,7 +2159,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 137 "syntax.y"
+#line 134 "syntax.y"
 
 
 void yyerror(const char* msg){
